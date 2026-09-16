@@ -13,3 +13,4 @@
 @media(max-width:650px){.paper-hero{width:calc(100% - 36px)}.paper-hero h1{font-size:clamp(25px,5.6vw,32px);letter-spacing:-.5px}.title-line{display:inline;white-space:normal}}
 .attention-layout{grid-template-columns:1fr 280px;max-width:870px}.attention-layout figure{width:100%;max-width:280px;justify-self:center}@media(max-width:750px){.attention-layout figure{width:80%;max-width:280px}}
 .resource-links a,.resource-links button{display:flex;align-items:center;gap:10px;border:1px solid #dce2e7;background:#f7f9fa;border-radius:24px;padding:12px 19px;color:#546471;opacity:1;font-size:15px}.resource-links a{text-decoration:none}.resource-links a:hover{border-color:#b7c9d8;background:#eef4f8;color:#3862ae}.resource-links button{cursor:not-allowed}
+.github-icon{width:16px;height:16px;fill:currentColor;flex:0 0 auto}
