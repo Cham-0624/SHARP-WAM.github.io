@@ -14,3 +14,80 @@
 .attention-layout{grid-template-columns:1fr 280px;max-width:870px}.attention-layout figure{width:100%;max-width:280px;justify-self:center}@media(max-width:750px){.attention-layout figure{width:80%;max-width:280px}}
 .resource-links a,.resource-links button{display:flex;align-items:center;gap:10px;border:1px solid #dce2e7;background:#f7f9fa;border-radius:24px;padding:12px 19px;color:#546471;opacity:1;font-size:15px}.resource-links a{text-decoration:none}.resource-links a:hover{border-color:#b7c9d8;background:#eef4f8;color:#3862ae}.resource-links button{cursor:not-allowed}
 .github-icon{width:16px;height:16px;fill:#283540;flex:0 0 auto}
+
+/* Quiet, hierarchical page guide with a dedicated desktop gutter. */
+.section-nav{position:fixed;left:24px;top:50%;transform:translateY(-50%);width:208px;max-height:calc(100dvh - 150px);overflow-y:auto;overscroll-behavior:contain;z-index:20;scrollbar-width:thin}
+.section-nav ol{list-style:none;margin:0;padding:0}
+.section-nav .section-nav-list{border-left:2px solid #edf0f2}
+.section-nav a{position:relative;display:block;padding:9px 10px 9px 18px;color:#62696f;font-size:1rem;line-height:1.5;text-decoration:none;transition:color .15s,background .15s}
+.section-nav ol ol a{padding-left:31px;font-size:.875rem;color:#81878c}
+.section-nav a:hover{color:#3862ae;background:#f6f9fc}
+.section-nav a[aria-current="location"]{color:#3862ae;background:#f1f6fa;font-weight:600}
+.section-nav a[aria-current="location"]::before{content:"";position:absolute;left:-2px;top:7px;bottom:7px;width:2px;background:#548ab4}
+.section-nav a:focus-visible{outline-offset:-2px}
+.contents-toggle{display:none;align-items:center;gap:8px;background:#fff;border:1px solid #dce2e7;border-radius:7px;padding:8px 12px;color:#455560;cursor:pointer;font-size:.875rem}
+@media(min-width:768px){
+  main,.page-footer{margin-left:224px}
+  .section-nav{left:18px;width:190px}
+  .content{width:min(1000px,calc(100% - 48px))}
+  .paper-hero{width:min(1080px,calc(100% - 48px));padding:52px 0 34px}
+  .paper-hero{container-type:inline-size}
+  .paper-hero h1{font-size:clamp(18px,3.35cqw,38px)}
+  .text-section{max-width:800px;padding-bottom:64px}
+  .architecture-figure{max-width:840px}
+  .interactive-shell{width:min(1040px,calc(100% - 32px));margin:46px auto 56px}
+  .attention-layout{max-width:780px;grid-template-columns:minmax(0,1fr) 245px;gap:44px}
+  .attention-layout figure{max-width:245px}
+  h2{font-size:29px}
+  h3{font-size:21px}
+  .demo-subsection-heading h3{font-size:25px}
+  .demo-grid{gap:20px}
+}
+@media(min-width:768px) and (max-width:1100px){
+  main,.page-footer{margin-left:200px}
+  .section-nav{left:12px;width:176px}
+  .section-nav a{padding-left:13px}
+  .section-nav ol ol a{padding-left:22px}
+  .attention-layout{grid-template-columns:minmax(0,1fr) 200px;gap:24px}
+}
+@media(max-width:767px){
+  .contents-toggle{display:inline-flex}
+  .section-nav{display:none;top:78px;left:auto;right:18px;transform:none;width:min(300px,calc(100vw - 36px));max-height:calc(100dvh - 96px);padding:16px;background:#fff;border:1px solid #e4e9ed;border-radius:10px;box-shadow:0 12px 36px #28354018}
+  .section-nav.is-open{display:block}
+}
+@media(max-width:750px){
+  .section-nav{top:68px;max-height:calc(100dvh - 86px)}
+  .attention-layout{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.section-nav a{transition:none}}
+
+/* LIBERO suites follow the reference's compact four-video rows. */
+.libero-section{margin-top:64px;padding-top:8px;border-top:1px solid var(--line)}
+.libero-suite{margin-top:32px}
+.libero-suite h4{font-size:19px;line-height:1.5;font-weight:600;letter-spacing:-.2px;margin:0 0 16px;color:#455560}
+.libero-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.libero-grid .demo-card video{aspect-ratio:2/1;height:auto;object-fit:contain}
+.libero-grid .demo-card figcaption{padding:10px 12px;font-size:14px;line-height:1.5}
+.libero-grid .demo-task{font-size:14px}
+@media(min-width:768px) and (max-width:1100px){.libero-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:767px){.libero-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}}
+@media(max-width:420px){.libero-grid{grid-template-columns:1fr}}
+
+.libero-grid .demo-card{display:flex;flex-direction:column;background:#fff}
+.libero-grid .demo-card figcaption{align-items:flex-start;flex:1}
+.libero-grid .video-scrubber{width:calc(100% - 24px);margin:10px 12px 2px}
+.libero-grid .video-scrubber{--progress:0%;height:6px;padding:0;border:0;background:transparent;appearance:none;-webkit-appearance:none;cursor:ew-resize}.libero-grid .video-scrubber::-webkit-slider-runnable-track{height:6px;border:0;border-radius:999px;background:linear-gradient(to right,#548ab4 0 var(--progress),#dce3e8 var(--progress) 100%)}.libero-grid .video-scrubber::-webkit-slider-thumb{width:8px;height:8px;margin-top:-1px;border:1px solid #fff;border-radius:50%;background:#548ab4;box-shadow:0 1px 2px #31465b38;-webkit-appearance:none;appearance:none}.libero-grid .video-scrubber::-moz-range-track{height:6px;border:0;border-radius:999px;background:#dce3e8}.libero-grid .video-scrubber::-moz-range-progress{height:6px;border-radius:999px;background:#548ab4}.libero-grid .video-scrubber::-moz-range-thumb{width:8px;height:8px;border:1px solid #fff;border-radius:50%;background:#548ab4;box-shadow:0 1px 2px #31465b38}
+.section-nav .gradient-name{font-weight:400}
+.abstract-figure{margin-top:34px}
+
+/* A slightly roomier paper layout, while keeping the interactive panel distinct. */
+@media(min-width:1101px){
+  .content{width:min(1160px,calc(100% - 64px))}
+  .text-section{max-width:940px}
+  .architecture-figure{max-width:1000px}
+  .interactive-shell{width:min(1280px,calc(100% - 64px))}
+  .attention-layout{grid-template-columns:minmax(0,1fr) 320px;max-width:940px;gap:65px}
+  .attention-layout figure{max-width:320px}
+  .demo-grid:not(.reserved-grid){grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+}
+@media(max-width:750px){.interactive-shell{width:calc(100% - 12px)}}

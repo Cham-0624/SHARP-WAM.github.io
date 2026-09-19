@@ -26,10 +26,14 @@
 
     let scrubbing = false;
     let pendingSeek = false;
+    const paintTrack = () => {
+      scrubber.style.setProperty('--progress', `${Number(scrubber.value) / 10}%`);
+    };
     const sync = () => {
       if (!scrubbing && !pendingSeek && Number.isFinite(video.duration) && video.duration > 0) {
         scrubber.value = String(Math.round(video.currentTime / video.duration * 1000));
       }
+      paintTrack();
     };
     const commitSeek = () => {
       if (!Number.isFinite(video.duration) || video.duration <= 0) return;
@@ -53,11 +57,15 @@
       play(video);
     });
     scrubber.addEventListener('pointerdown', () => { scrubbing = true; });
-    scrubber.addEventListener('input', () => { scrubbing = true; });
+    scrubber.addEventListener('input', () => {
+      scrubbing = true;
+      paintTrack();
+    });
     scrubber.addEventListener('change', commitSeek);
     scrubber.addEventListener('blur', () => {
       if (scrubbing && !pendingSeek) commitSeek();
     });
+    paintTrack();
   }
 
   videos.forEach(video => {
